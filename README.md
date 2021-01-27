@@ -161,5 +161,28 @@ Resource/: resources that are required by CShaperAPP
 <p align="justify">Volumetric raw images are further segmented at single-cell level. Segmentations are saved at folder <code>Project Folder/181210plc1p2</code>. The user can <I>visually inspect the segmentation performance by loading the raw image (from <code>Preprocess</code>) and the segmentation with itk-SNAP</I>. Please note that at this stage, cells are not strictly lablled according to the `name_dictionary.csv`, which remains to be solved in <code>Analysis</code>.</p>
 
 <h3>2.3 Analysis</h3>
+<p align="justify">Section <code>Analysis</code> will collect cell morphological information, including cell volume, cell surface area and cell-cell contact area. It also combines two daughter cells during the the division process in which case one cell includes two nuclei.</p>
 
+<h4>Parameters</h4>
+<details>
+  <summary>Parameter list</summary><div>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Value</th>
+        <th>Example</th>
+      </tr>
+    </table>
+  </div>
+</details>
 
+<h4>Results</h4>
+<p align="justify">Morphological information are saved to <code>StatShape</code>. These results can be either viewed in section <code>Result</code> or processed for different needs.</p>
+
+<h3>2.4 Result</h3>
+<p align="justify">This part provides a window for the user to view both the segmentation results and the collected information. In <code>3D</code> component, the user can inspect the segmentation results at each time point interactively. All tables are exportable for further studies. Please note that because all segmentations are preloaded here, this function might be computationally consuming when there are too many time points. Besides, CShaperAPP concentrates on segmenting the embryo data, so we recommend the <a href="http://www.itksnap.org">itk-SNAP</a> to the user for user-friendly interface to view the results.</p>
+
+<h2>3. Deployment</h2>
+
+<h2>4. Correspondence</h2>
+<p>Please contact Jianfeng Cao at jfcao3-c(at)my.cityu.edu.hk or create an issue under the <a href="https://github.com/cao13jf/CShaperAPP_PUB">source repository</a>.</p>
