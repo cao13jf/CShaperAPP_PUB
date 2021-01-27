@@ -112,7 +112,7 @@ Resource/: resources that are required by CShaperAPP
 <p align="justify">Membrane and nucleus slices are composed into a volume at each time point. The volumetric images are saved as <code>*.nii.gz</code> files under folder <code>Project Folder/MembRaw</code>, which can be loaded by <a href="http://www.itksnap.org/pmwiki/pmwiki.php">itk-SNAP</a>.</p>
 
 <h3>2.2 Segmentation</h3>
-<p>At this stage, some parameters are assumed to be the same as that of <code>Preprocess</code>. If not, the user can change the settings but please make sure the embryo to be segmented has been processed by stage <code>Preprocess</code>.</p>
+<p align="justify">At this stage, some parameters are assumed to be the same as that of <code>Preprocess</code>. If not, the user can change the settings but please make sure the embryo to be segmented has been processed by stage <code>Preprocess</code>.</p>
 <h4>Parameters</h4>
 <details>
   <summary>Parameter list</summary><div>
