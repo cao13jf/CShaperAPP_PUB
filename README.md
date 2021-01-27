@@ -1,6 +1,5 @@
-<center><h1>
-  Document of CShaperAPP
-  </h1></center>
+<h1 align="center">Document of CShaperAPP</h1>
+
 
 <p align="center">Authors: Jianfeng Cao, Lihan Hu, Hong Yan</p>
 
@@ -30,7 +29,7 @@ Project Folder/: the target folder where all results will be saved
   |--CellMembrane/: binary membrane surface
   |--CellMembranePostseg/: segmentation results
      |--181210plc1p1/: cell segmentations without cell labels
-     |--181210plc1p2/: cell segmentations whose labels can be queried
+     |--181210plc1p2LabelUnified/: cell segmentations whose labels can be queried
   |--NucleusLoc/: nucleus location information
   |--RawStack/: stacked membrane and nucleus images
   |--StatShape/: statistical results from the segmentations
@@ -48,9 +47,14 @@ Resource/: resources that are required by CShaperAPP
 
 <h3>Preprocess</h3>
 
+<p style="align: justify">The user needs to set meta-information about the image data. An example data can be downloaded from <a href="https://portland-my.sharepoint.com/:u:/g/personal/jfcao3-c_my_cityu_edu_hk/EdOYHmsTunJFvMzX1hhh24ABleMOoSRexF9Dr_eUbYvBjw?e=XeEe4u">MembRaw</a> (0.2G) or <a href="https://portland-my.sharepoint.com/:u:/g/personal/jfcao3-c_my_cityu_edu_hk/EXk6zZW8wuJMjFEZQ005rysBOfBheOV253iVdZipIvbvqA?e=2hUUIM">MembRawFull</a> (1.88G). <code>MembRaw</code> only includes <I>time point=1~20</I> in <code>MembRawFull</code> in order to reduce the size of file to be downloaded or tested. The meaning of each parameters are listed as follows (based on the example data).</p>
+
 <h4>Parameters</h4>
 
-<table style="width: 60%">
+<details><summary>Parameter list</summary><div>
+
+
+<table style="width: 80%">
   <tr>
     <th>Name</th>
     <th>Value</th>
@@ -101,5 +105,61 @@ Resource/: resources that are required by CShaperAPP
     <td>root/Resource/number_dictionary.csv</td>
   </tr>
 </table>
+</div></details>
+
+<h4>Results</h4>
+
+<p align="justify">Membrane and nucleus slices are composed into a volume at each time point. The volumetric images are saved as <code>*.nii.gz</code> files under folder <code>Project Folder/MembRaw</code>, which can be loaded by <a href="http://www.itksnap.org/pmwiki/pmwiki.php">itk-SNAP</a>.</p>
+
+<h3>Segmentation</h3>
+<p>At this stage, some parameters are assumed to be the same as that of <code>Preprocess</code>. If not, the user can change the settings but please make sure the embryo to be segmented has been processed by stage <code>Preprocess</code>.</p>
+<h4>Parameters</h4>
+<details>
+  <summary>Parameter list</summary><div>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Value</th>
+      <th>Example</th>
+    </tr>
+    <tr>
+      <td>Project Folder</td>
+      <td><code>Preprocess</code></td>
+      <td><code>Preprocess</code></td>
+    </tr>
+    <tr>
+      <td>Embryo Names</td>
+      <td><code>Preprocess</code></td>
+      <td><code>Preprocess</code></td>
+    </tr>
+    <tr>
+      <td>Max Time<td>
+      <td><code>Preprocess</code></td>
+      <td><code>Preprocess</code></td>
+    </tr>
+    <tr>
+      <td>Batch Size</td>
+      <td>The number of images to be computed in parallel. The value should be set based on your computer resources (i.e. GPU).</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Use Lineage</td>
+      <td>Three cases: no lineage; after segmentation (used in CShaper, cell cavity can be detected); before segmentation (nuclei are used as seeds in watershed segmentation, so cell cavity cannot be detected)</td>
+      <td>After Lineage</td>
+    </tr>
+    <tr>
+      <td>Model File</td>
+      <td>The file of pretrained model</td>
+      <td>root/Resource/TrainedModel/DMapNet_pub_5000.ckpt</td>
+    </tr>
+  </table>
+  </div>
+</details>
+
+<h4>Results</h4>
+
+<p align="justify">Volumetric raw images are further segmented at single-cell level. Segmentations are saved at folder <code>Project Folder/181210plc1p2</code>. The user can <I>visually inspect the segmentation performance by loading the raw image (from <code>Preprocess</code>) and the segmentation with itk-SNAP</I>. Please note that at this stage, cells are not strictly lablled according to the `name_dictionary.csv`, which remains to be solved in <code>Analysis</code>.</p>
+
+<h3>Analysis</h3>
 
 
