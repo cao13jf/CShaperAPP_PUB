@@ -13,7 +13,7 @@
     <li>
         <a href="#usage">Usage</a>
     </li>
-    <ol>
+    <ol style="type=a">
         <li>
             <a href="#usage_folder">Folder Structure</a>
         </li>
@@ -41,7 +41,7 @@
 <p align="justify">Briefly speaking, CShaperApp is composed of four functional sections, including <B>Preprocess</B>, <B>Segmentation</B>, <B> Analysis</B> and  <B>Result</B>. While these four parts are designed to be excuted sequentially, they can also be used to process or anlayze the data individually if  data has already been prepared. In order to use this software efficiently, especially for <B>Segmentation</B>, GPU acceleration is preferred. However, all components has been tested successfully on basic desktop (RAM=16G, no GPU).</p>
 
 <h2>2. Installation</h2><a name="installation"></a>
-<p align="justify">The user can download the installer of CShaperApp from this <a href="https://portland-my.sharepoint.com/:u:/g/personal/jfcao3-c_my_cityu_edu_hk/EbCzq9_bn9VEvmlHjJKIJ0ABg6jcxeXziSyzOMKFRn7-kA?download=1">link</a>. CShaperApp was tested on Windows 7 and Windows 10 (64 bit). For the user's reference, we list the time that CShaperApp takes to process the example dataset <a href="https://portland-my.sharepoint.com/:u:/g/personal/jfcao3-c_my_cityu_edu_hk/EdOYHmsTunJFvMzX1hhh24ABleMOoSRexF9Dr_eUbYvBjw?download=1">MembRaw</a>.</p>
+<p align="justify">The user can download the installer of CShaperApp from <a href="https://portland-my.sharepoint.com/:u:/g/personal/jfcao3-c_my_cityu_edu_hk/EbCzq9_bn9VEvmlHjJKIJ0ABg6jcxeXziSyzOMKFRn7-kA?download=1">link</a> (CPU version) or <a href="https://portland-my.sharepoint.com/:u:/g/personal/jfcao3-c_my_cityu_edu_hk/EfyXiRHkT89KulAhvv0XpXUBc9YV5Yp2JxPNdHJ2GrT_TQ?download=1">link</a> (GPU version). CShaperApp was tested on Windows 7 and Windows 10 (64 bit). For the user's reference, we list the time that CShaperApp takes to process the example dataset <a href="https://portland-my.sharepoint.com/:u:/g/personal/jfcao3-c_my_cityu_edu_hk/EdOYHmsTunJFvMzX1hhh24ABleMOoSRexF9Dr_eUbYvBjw?download=1">MembRaw</a>.</p>
 
 <p align="center">
   <table>
@@ -57,7 +57,7 @@
       <td>16G RAM, 4 cores, no GPU</td>
       <td>45 s</td>
       <td>33 min 32 s</td>
-      <td>****</td>
+      <td>30 s</td>
     </tr>
     <tr>
       <td>Windows 10</td>
